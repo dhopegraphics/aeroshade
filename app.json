@@ -33,6 +33,15 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
+      ] ,
+
+       [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow AeroSpace to access your camera For scanning Qr Code To Confirmation",
+          "microphonePermission": "Allow AeroSpace to access your microphone",
+          "recordAudioAndroid": true
+        }
       ]
     ],
     "experiments": {
