@@ -73,9 +73,6 @@ export default function ModalLayout() {
               />
             </TouchableOpacity>
           ),
-          headerTitleContainerStyle: {
-            paddingBottom: 8,
-          },
         }}
       />
     </Stack>
