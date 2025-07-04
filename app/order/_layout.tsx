@@ -14,23 +14,11 @@ export default function OrderLayout() {
       screenOptions={{
         headerStyle: {
           backgroundColor: isDark ? "#0F214D" : "#EBFCFF",
-          elevation: 0,
-          shadowOpacity: 0,
         },
         headerTitleStyle: {
           color: isDark ? "#EBFCFF" : "#0F214D",
           fontFamily: "Inter_600SemiBold",
           fontSize: 18,
-        },
-        headerBackTitleVisible: false,
-        headerLeftContainerStyle: {
-          paddingLeft: 16,
-        },
-        headerRightContainerStyle: {
-          paddingRight: 16,
-        },
-        contentStyle: {
-          backgroundColor: isDark ? "#0F214D" : "#EBFCFF",
         },
       }}
     >
