@@ -7,7 +7,7 @@ import { Animated, StyleSheet, View } from "react-native";
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
 
-export default function SplashScreen() {
+export default function AppSplashScreen() {
   const router = useRouter();
   const { colorScheme } = useColorScheme();
   const fadeAnim = new Animated.Value(0);
