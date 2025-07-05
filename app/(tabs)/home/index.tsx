@@ -11,7 +11,7 @@ type LocationRegion = {
   longitudeDelta: number;
 };
 
-export default function HomePage() {
+const HomePage = () => {
   const [location, setLocation] = useState<LocationRegion | null>(null);
   const [weather, setWeather] = useState({ temp: "24°C", condition: "🌧️" });
   const [nearbyBots, setNearbyBots] = useState([
@@ -158,4 +158,6 @@ export default function HomePage() {
       </View>
     </View>
   );
-}
+};
+
+export default HomePage;

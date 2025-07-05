@@ -2,7 +2,7 @@ import { useRouter } from "expo-router";
 import { useEffect, useState } from "react";
 import { ActivityIndicator, Text, TouchableOpacity, View } from "react-native";
 
-export default function OrderPage() {
+const OrderPage = () => {
   const [searching, setSearching] = useState(true);
   type DroneDetails = {
     id: string;
@@ -120,4 +120,6 @@ export default function OrderPage() {
       </View>
     </View>
   );
-}
+};
+
+export default OrderPage;

@@ -2,7 +2,7 @@ import { useRouter } from "expo-router";
 import { useState } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 
-export default function CompletionPage() {
+const CompletionPage = () => {
   const [rating, setRating] = useState(0);
   const [feedback, setFeedback] = useState("");
   const router = useRouter();
@@ -77,4 +77,6 @@ export default function CompletionPage() {
       </View>
     </View>
   );
-}
+};
+
+export default CompletionPage;

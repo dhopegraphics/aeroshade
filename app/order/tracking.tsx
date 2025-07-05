@@ -37,11 +37,11 @@ export default function TrackingPage() {
   }, []);
 
   const switchToManual = () => {
-    router.push("/manual");
+    router.push("/order/manual-control");
   };
 
   const endSession = () => {
-    router.push("/completion");
+    router.push("/order/complete");
   };
 
   return (

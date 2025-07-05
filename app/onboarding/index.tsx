@@ -53,7 +53,7 @@ export default function Onboarding() {
         </TouchableOpacity>
 
         {currentSlide === slides.length - 1 ? (
-          <Link href="/auth/login" asChild>
+          <Link href="/(auth)/login" asChild>
             <TouchableOpacity className="bg-persianBlue px-6 py-3 rounded-lg">
               <Text className="text-white font-semibold">Get Started</Text>
             </TouchableOpacity>

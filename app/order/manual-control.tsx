@@ -5,7 +5,7 @@ import MapView from "react-native-maps";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Button from "../../components/common/Button"; // Adjust the import path as necessary
 
-export default function ManualControlScreen() {
+const ManualControlScreen = () => {
   const [timeLeft, setTimeLeft] = useState(120); // 2 minutes
 
   useEffect(() => {
@@ -79,4 +79,6 @@ export default function ManualControlScreen() {
       </View>
     </SafeAreaView>
   );
-}
+};
+
+export default ManualControlScreen;

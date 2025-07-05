@@ -4,7 +4,7 @@ import { ActivityIndicator, Text, TouchableOpacity, View } from "react-native";
 import MapView from "react-native-maps";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-export default function OrderConfirmation() {
+const OrderConfirmation = () => {
   const [countdown, setCountdown] = useState(30);
   const [isSearching, setIsSearching] = useState(true);
 
@@ -79,4 +79,6 @@ export default function OrderConfirmation() {
       </View>
     </SafeAreaView>
   );
-}
+};
+
+export default OrderConfirmation;
