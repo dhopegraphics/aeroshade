@@ -3,7 +3,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { useColorScheme } from "nativewind";
 import { useEffect } from "react";
 import { Animated, Text, View } from "react-native";
-
+import "../global.css";
 const Home = () => {
   const router = useRouter();
   const { colorScheme } = useColorScheme();
