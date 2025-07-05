@@ -5,7 +5,7 @@ import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Button from "../../components/common/Button";
 
-export default function VerificationScreen() {
+const VerificationScreen = () => {
   const [facing, setFacing] = useState<CameraType>("back");
   const [permission, requestPermission] = useCameraPermissions();
   const [scanned, setScanned] = useState(false);
@@ -75,4 +75,6 @@ export default function VerificationScreen() {
       </View>
     </SafeAreaView>
   );
-}
+};
+
+export default VerificationScreen;

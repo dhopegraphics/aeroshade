@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 
-export default function TrackingPage() {
+const TrackingPage = () => {
   const [droneLocation, setDroneLocation] = useState({
     latitude: 37.78825,
     longitude: -122.4324,
@@ -123,4 +123,6 @@ export default function TrackingPage() {
       </View>
     </View>
   );
-}
+};
+
+export default TrackingPage;
