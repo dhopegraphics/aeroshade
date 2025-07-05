@@ -7,6 +7,7 @@ import { Animated, Text, View } from "react-native";
 const Home = () => {
   const router = useRouter();
   const { colorScheme } = useColorScheme();
+  const isDark = colorScheme === "dark";
   const fadeAnim = new Animated.Value(0);
 
   useEffect(() => {
