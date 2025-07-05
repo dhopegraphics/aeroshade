@@ -4,8 +4,15 @@ import { useEffect, useState } from "react";
 import { Alert, Text, TouchableOpacity, View } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 
+type LocationRegion = {
+  latitude: number;
+  longitude: number;
+  latitudeDelta: number;
+  longitudeDelta: number;
+};
+
 export default function HomePage() {
-  const [location, setLocation] = useState(null);
+  const [location, setLocation] = useState<LocationRegion | null>(null);
   const [weather, setWeather] = useState({ temp: "24°C", condition: "🌧️" });
   const [nearbyBots, setNearbyBots] = useState([
     { id: 1, latitude: 37.78825, longitude: -122.4324, available: true },
@@ -30,8 +37,8 @@ export default function HomePage() {
 
     let userLocation = await Location.getCurrentPositionAsync({});
     setLocation({
-      latitude: userLocation.coords.latitude,
-      longitude: userLocation.coords.longitude,
+      latitude: userLocation?.coords?.latitude,
+      longitude: userLocation?.coords?.longitude,
       latitudeDelta: 0.01,
       longitudeDelta: 0.01,
     });
