@@ -45,7 +45,7 @@ export default function HomePage() {
   };
 
   const handleOrderUmbrella = () => {
-    router.push("/order");
+    router.push("/order/active");
   };
 
   const openSettings = () => {

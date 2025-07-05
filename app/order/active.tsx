@@ -34,7 +34,7 @@ export default function OrderPage() {
   };
 
   const confirmArrival = () => {
-    router.push("/verification");
+    router.push("/order/verification");
   };
 
   if (searching) {
