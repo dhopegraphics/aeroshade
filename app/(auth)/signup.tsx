@@ -1,175 +1,153 @@
 import { Link } from "expo-router";
-import { useColorScheme } from "nativewind";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import { useState } from "react";
+import {
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function SignupScreen() {
-  const { colorScheme } = useColorScheme();
-  const isDark = colorScheme === "dark";
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
 
   return (
-    <SafeAreaView
-      className={`flex-1 px-6 ${isDark ? "bg-collegeBlue" : "bg-morningBlue"}`}
-    >
-      <View className="flex-1">
-        <Text
-          className={`text-2xl font-bold mt-8 ${
-            isDark ? "text-yellowBanana" : "text-collegeBlue"
-          }`}
-        >
-          Create Account
-        </Text>
-        <Text
-          className={`mt-2 ${isDark ? "text-morningBlue" : "text-collegeBlue"}`}
-        >
-          Get started with AeroShade
-        </Text>
+    <SafeAreaView className="flex-1 bg-white dark:bg-collegeBlue">
+      <ScrollView className="flex-1">
+        {/* Header */}
+        <View className="px-6 pt-6">
+          <Text className="text-3xl font-bold text-black dark:text-yellowBanana mb-2">
+            Create your account
+          </Text>
+        </View>
 
-        <View className="mt-8 space-y-4">
-          <View>
-            <Text
-              className={`mb-2 ${
-                isDark ? "text-morningBlue" : "text-collegeBlue"
-              }`}
-            >
-              Full Name
-            </Text>
-            <TextInput
-              className={`p-4 rounded-xl ${
-                isDark
-                  ? "bg-persianBlue text-white"
-                  : "bg-white text-collegeBlue"
-              }`}
-              placeholder="Enter your full name"
-              placeholderTextColor={isDark ? "#AAFIFF" : "#0F214D80"}
-            />
+        {/* Form */}
+        <View className="px-6 mt-8">
+          {/* Name Fields */}
+          <View className="flex-row space-x-3 mb-4">
+            <View className="flex-1">
+              <TextInput
+                className="bg-gray-100 dark:bg-persianBlue p-4 rounded-lg text-black dark:text-white"
+                placeholder="First name"
+                placeholderTextColor="#9CA3AF"
+                value={firstName}
+                onChangeText={setFirstName}
+              />
+            </View>
+            <View className="flex-1">
+              <TextInput
+                className="bg-gray-100 dark:bg-persianBlue p-4 rounded-lg text-black dark:text-white"
+                placeholder="Last name"
+                placeholderTextColor="#9CA3AF"
+                value={lastName}
+                onChangeText={setLastName}
+              />
+            </View>
           </View>
 
-          <View>
-            <Text
-              className={`mb-2 ${
-                isDark ? "text-morningBlue" : "text-collegeBlue"
-              }`}
-            >
-              Email
-            </Text>
+          {/* Email */}
+          <View className="mb-4">
             <TextInput
-              className={`p-4 rounded-xl ${
-                isDark
-                  ? "bg-persianBlue text-white"
-                  : "bg-white text-collegeBlue"
-              }`}
-              placeholder="Enter your email"
-              placeholderTextColor={isDark ? "#AAFIFF" : "#0F214D80"}
+              className="bg-gray-100 dark:bg-persianBlue p-4 rounded-lg text-black dark:text-white"
+              placeholder="Email"
+              placeholderTextColor="#9CA3AF"
+              value={email}
+              onChangeText={setEmail}
               keyboardType="email-address"
+              autoCapitalize="none"
             />
           </View>
 
-          <View>
-            <Text
-              className={`mb-2 ${
-                isDark ? "text-morningBlue" : "text-collegeBlue"
-              }`}
-            >
-              Password
-            </Text>
+          {/* Phone */}
+          <View className="mb-4">
             <TextInput
-              className={`p-4 rounded-xl ${
-                isDark
-                  ? "bg-persianBlue text-white"
-                  : "bg-white text-collegeBlue"
-              }`}
-              placeholder="Create a password"
-              placeholderTextColor={isDark ? "#AAFIFF" : "#0F214D80"}
+              className="bg-gray-100 dark:bg-persianBlue p-4 rounded-lg text-black dark:text-white"
+              placeholder="Phone number"
+              placeholderTextColor="#9CA3AF"
+              value={phone}
+              onChangeText={setPhone}
+              keyboardType="phone-pad"
+            />
+          </View>
+
+          {/* Password */}
+          <View className="mb-6">
+            <TextInput
+              className="bg-gray-100 dark:bg-persianBlue p-4 rounded-lg text-black dark:text-white"
+              placeholder="Password"
+              placeholderTextColor="#9CA3AF"
+              value={password}
+              onChangeText={setPassword}
               secureTextEntry
             />
           </View>
 
-          <View className="flex-row items-start mt-2">
-            <TouchableOpacity className="mt-1 mr-2">
-              <View
-                className={`w-5 h-5 rounded-md border ${
-                  isDark ? "border-pictonBlue" : "border-persianBlue"
-                }`}
-              />
-            </TouchableOpacity>
-            <Text
-              className={`flex-1 ${
-                isDark ? "text-morningBlue" : "text-collegeBlue"
-              }`}
-            >
-              I agree to the Terms of Service and Privacy Policy
+          {/* Terms */}
+          <Text className="text-sm text-gray-600 dark:text-morningBlue mb-6 leading-5">
+            By creating an account, you agree to our{" "}
+            <Text className="underline">Terms of Service</Text> and{" "}
+            <Text className="underline">Privacy Policy</Text>
+          </Text>
+
+          {/* Create Account Button */}
+          <TouchableOpacity className="bg-black dark:bg-pictonBlue py-4 rounded-lg mb-6">
+            <Text className="text-white font-semibold text-center text-base">
+              Create account
             </Text>
+          </TouchableOpacity>
+
+          {/* Divider */}
+          <View className="flex-row items-center mb-6">
+            <View className="flex-1 h-px bg-gray-300 dark:bg-persianBlue" />
+            <Text className="mx-4 text-gray-500 dark:text-morningBlue">or</Text>
+            <View className="flex-1 h-px bg-gray-300 dark:bg-persianBlue" />
+          </View>
+
+          {/* Social Login Buttons */}
+          <View className="space-y-3 mb-8">
+            <TouchableOpacity className="bg-white dark:bg-persianBlue border border-gray-300 dark:border-persianBlue py-4 rounded-lg flex-row items-center justify-center">
+              <View className="w-5 h-5 bg-gray-300 dark:bg-middleBlue rounded mr-3" />
+              <Text className="text-black dark:text-white font-medium">
+                Continue with Google
+              </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity className="bg-white dark:bg-persianBlue border border-gray-300 dark:border-persianBlue py-4 rounded-lg flex-row items-center justify-center">
+              <View className="w-5 h-5 bg-gray-300 dark:bg-middleBlue rounded mr-3" />
+              <Text className="text-black dark:text-white font-medium">
+                Continue with Apple
+              </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity className="bg-white dark:bg-persianBlue border border-gray-300 dark:border-persianBlue py-4 rounded-lg flex-row items-center justify-center">
+              <View className="w-5 h-5 bg-gray-300 dark:bg-middleBlue rounded mr-3" />
+              <Text className="text-black dark:text-white font-medium">
+                Continue with Facebook
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
+      </ScrollView>
 
-        <TouchableOpacity
-          className={`mt-8 py-4 rounded-xl ${
-            isDark ? "bg-pictonBlue" : "bg-persianBlue"
-          }`}
-        >
-          <Text className="text-white font-bold text-center">
-            Create Account
+      {/* Bottom Sign In */}
+      <View className="border-t border-gray-200 dark:border-persianBlue px-6 py-4">
+        <View className="flex-row justify-center items-center">
+          <Text className="text-gray-600 dark:text-morningBlue">
+            Already have an account?{" "}
           </Text>
-        </TouchableOpacity>
-
-        <View className="flex-row items-center my-6">
-          <View
-            className={`flex-1 h-px ${
-              isDark ? "bg-persianBlue" : "bg-collegeBlue/30"
-            }`}
-          />
-          <Text
-            className={`mx-4 ${
-              isDark ? "text-morningBlue" : "text-collegeBlue"
-            }`}
-          >
-            or sign up with
-          </Text>
-          <View
-            className={`flex-1 h-px ${
-              isDark ? "bg-persianBlue" : "bg-collegeBlue/30"
-            }`}
-          />
+          <Link href="/(auth)/login" asChild>
+            <TouchableOpacity>
+              <Text className="text-black dark:text-pictonBlue font-semibold">
+                Sign in
+              </Text>
+            </TouchableOpacity>
+          </Link>
         </View>
-
-        <View className="flex-row justify-center space-x-4">
-          <TouchableOpacity
-            className={`p-3 rounded-xl ${
-              isDark ? "bg-persianBlue" : "bg-white"
-            }`}
-          >
-            <Text className={isDark ? "text-white" : "text-collegeBlue"}>
-              Google
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            className={`p-3 rounded-xl ${
-              isDark ? "bg-persianBlue" : "bg-white"
-            }`}
-          >
-            <Text className={isDark ? "text-white" : "text-collegeBlue"}>
-              Apple
-            </Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-
-      <View className="py-4 flex-row justify-center">
-        <Text className={`${isDark ? "text-morningBlue" : "text-collegeBlue"}`}>
-          Already have an account?
-        </Text>
-        <Link href="/(auth)/login" asChild>
-          <TouchableOpacity className="ml-1">
-            <Text
-              className={`font-bold ${
-                isDark ? "text-pictonBlue" : "text-persianBlue"
-              }`}
-            >
-              Sign In
-            </Text>
-          </TouchableOpacity>
-        </Link>
       </View>
     </SafeAreaView>
   );
