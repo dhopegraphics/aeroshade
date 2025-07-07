@@ -135,6 +135,30 @@ export default function TabLayout() {
           ),
         }}
       />
+      <Tabs.Screen
+        name="account/settings"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="history/[id]"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="account/help"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="home/[ride]"
+        options={{
+          href: null,
+        }}
+      />
     </Tabs>
   );
 }

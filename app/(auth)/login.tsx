@@ -1,4 +1,4 @@
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import { useState } from "react";
 import {
   ScrollView,
@@ -14,7 +14,7 @@ export default function LoginScreen() {
   const [password, setPassword] = useState("");
 
   return (
-    <SafeAreaView className="flex-1 bg-white dark:bg-collegeBlue">
+    <SafeAreaView className="flex-1 bg-white dark:bg-gray-900">
       <ScrollView className="flex-1">
         {/* Header */}
         <View className="px-6 pt-6">
@@ -51,7 +51,10 @@ export default function LoginScreen() {
           </View>
 
           {/* Sign In Button */}
-          <TouchableOpacity className="bg-black dark:bg-pictonBlue py-4 rounded-lg mb-4">
+          <TouchableOpacity
+            onPress={() => router.replace("/(tabs)/home")}
+            className="bg-black dark:bg-pictonBlue py-4 rounded-lg mb-4"
+          >
             <Text className="text-white font-semibold text-center text-base">
               Sign in
             </Text>
