@@ -89,7 +89,7 @@ export default function SettingsPage() {
         {/* Logout */}
         <View className="m-4">
           <TouchableOpacity
-            onPress={() => router.replace("/auth")}
+            onPress={() => router.replace("/(auth)/login")}
             className="bg-red-500 py-4 rounded-xl"
           >
             <Text className="text-white text-center font-semibold text-lg">
