@@ -53,26 +53,33 @@ const HomePage = () => {
   };
 
   return (
-    <View className="flex-1 bg-morningBlue dark:bg-collegeBlue">
+    <View className="flex-1 bg-white">
       {/* Top Bar */}
-      <View className="bg-white dark:bg-gray-800 px-4 py-3 flex-row justify-between items-center border-b border-gray-200 dark:border-gray-700">
+      <View className="bg-white px-4 py-3 flex-row justify-between items-center border-b border-gray-100 shadow-sm">
         <TouchableOpacity onPress={openSettings}>
-          <View className="w-10 h-10 bg-persianBlue dark:bg-pictonBlue rounded-full justify-center items-center">
-            <Text className="text-white font-bold">👤</Text>
+          <View
+            className="w-12 h-12 rounded-full justify-center items-center"
+            style={{ backgroundColor: "#0B5FB0" }}
+          >
+            <Text className="text-white font-bold text-lg">👤</Text>
           </View>
         </TouchableOpacity>
 
-        <View className="flex-row items-center space-x-4">
-          <View className="flex-row items-center bg-yellowBanana dark:bg-collegeBlue px-3 py-1 rounded-full">
-            <Text className="text-lg mr-1">{weather.condition}</Text>
-            <Text className="text-collegeBlue dark:text-white font-medium">
+        <View className="flex-row items-center space-x-3">
+          <View
+            className="flex-row items-center px-4 py-2 rounded-full"
+            style={{ backgroundColor: "#EFEDCE" }}
+          >
+            <Text className="text-lg mr-2">{weather.condition}</Text>
+            <Text className="font-semibold" style={{ color: "#0F214D" }}>
               {weather.temp}
             </Text>
           </View>
 
-          <TouchableOpacity>
-            <Text className="text-persianBlue dark:text-pictonBlue font-medium">
-              📍 Set Location
+          <TouchableOpacity className="flex-row items-center px-3 py-2 rounded-full bg-gray-50">
+            <Text className="text-lg mr-1">📍</Text>
+            <Text className="font-medium" style={{ color: "#0B5FB0" }}>
+              Set Location
             </Text>
           </TouchableOpacity>
         </View>
@@ -98,11 +105,14 @@ const HomePage = () => {
                 description={bot.available ? "Available" : "In Use"}
               >
                 <View
-                  className={`w-8 h-8 rounded-full justify-center items-center ${
-                    bot.available ? "bg-persianBlue" : "bg-gray-400"
-                  }`}
+                  className="w-10 h-10 rounded-full justify-center items-center shadow-lg"
+                  style={{
+                    backgroundColor: bot.available ? "#2BA3EC" : "#0F214D",
+                    borderWidth: 2,
+                    borderColor: "white",
+                  }}
                 >
-                  <Text className="text-white text-xs">☂</Text>
+                  <Text className="text-white text-base">☂</Text>
                 </View>
               </Marker>
             ))}
@@ -110,49 +120,151 @@ const HomePage = () => {
         )}
       </View>
 
+      {/* Weather Alert Banner */}
+      <View
+        className="mx-4 mb-2 p-3 rounded-lg"
+        style={{ backgroundColor: "#EBFCFF" }}
+      >
+        <View className="flex-row items-center">
+          <Text className="text-2xl mr-3">⛈️</Text>
+          <View className="flex-1">
+            <Text className="font-semibold" style={{ color: "#0F214D" }}>
+              Heavy Rain Expected
+            </Text>
+            <Text className="text-sm" style={{ color: "#0B5FB0" }}>
+              Order an umbrella now to stay dry
+            </Text>
+          </View>
+        </View>
+      </View>
+
       {/* Bottom Order Sheet */}
-      <View className="bg-white dark:bg-gray-800 p-6 rounded-t-3xl">
+      <View
+        className="bg-white p-6 rounded-t-3xl shadow-2xl"
+        style={{ borderTopWidth: 1, borderTopColor: "#AAFIFF" }}
+      >
+        <View
+          className="w-12 h-1 rounded-full self-center mb-4"
+          style={{ backgroundColor: "#AAFIFF" }}
+        />
+
         <View className="mb-6">
-          <Text className="text-lg font-semibold text-collegeBlue dark:text-white mb-4">
+          <Text className="text-xl font-bold mb-1" style={{ color: "#0F214D" }}>
             Order Umbrella Protection
           </Text>
+          <Text className="text-sm" style={{ color: "#0B5FB0" }}>
+            Get instant protection from rain with drone delivery
+          </Text>
+        </View>
 
-          <View className="space-y-3">
-            <View className="flex-row items-center justify-between">
-              <Text className="text-gray-600 dark:text-gray-400">
-                Pickup Point
-              </Text>
-              <Text className="text-collegeBlue dark:text-white font-medium">
-                Current Location
-              </Text>
-            </View>
+        {/* Quick Stats */}
+        <View className="flex-row justify-between mb-6">
+          <View
+            className="flex-1 items-center p-3 rounded-lg mr-2"
+            style={{ backgroundColor: "#EFEDCE" }}
+          >
+            <Text className="text-2xl mb-1">🚁</Text>
+            <Text className="text-xs font-medium" style={{ color: "#0F214D" }}>
+              Available Drones
+            </Text>
+            <Text className="text-lg font-bold" style={{ color: "#0B5FB0" }}>
+              3
+            </Text>
+          </View>
 
-            <View className="flex-row items-center justify-between">
-              <Text className="text-gray-600 dark:text-gray-400">
-                Estimated Arrival
-              </Text>
-              <Text className="text-collegeBlue dark:text-white font-medium">
-                3-5 minutes
-              </Text>
-            </View>
+          <View
+            className="flex-1 items-center p-3 rounded-lg mx-1"
+            style={{ backgroundColor: "#EBFCFF" }}
+          >
+            <Text className="text-2xl mb-1">⏱️</Text>
+            <Text className="text-xs font-medium" style={{ color: "#0F214D" }}>
+              Avg Delivery
+            </Text>
+            <Text className="text-lg font-bold" style={{ color: "#2BA3EC" }}>
+              4 min
+            </Text>
+          </View>
 
-            <View className="flex-row items-center justify-between">
-              <Text className="text-gray-600 dark:text-gray-400">
-                Nearest Bot
-              </Text>
-              <Text className="text-collegeBlue dark:text-white font-medium">
-                120m away
-              </Text>
-            </View>
+          <View
+            className="flex-1 items-center p-3 rounded-lg ml-2"
+            style={{ backgroundColor: "#AAFIFF" }}
+          >
+            <Text className="text-2xl mb-1">📍</Text>
+            <Text className="text-xs font-medium" style={{ color: "#0F214D" }}>
+              Nearest Bot
+            </Text>
+            <Text className="text-lg font-bold" style={{ color: "#0B5FB0" }}>
+              120m
+            </Text>
           </View>
         </View>
 
+        {/* Order Details */}
+        <View className="space-y-3 mb-6">
+          <View className="flex-row items-center justify-between py-2">
+            <View className="flex-row items-center">
+              <View
+                className="w-3 h-3 rounded-full mr-3"
+                style={{ backgroundColor: "#2BA3EC" }}
+              />
+              <Text style={{ color: "#0F214D" }}>Pickup Point</Text>
+            </View>
+            <Text className="font-semibold" style={{ color: "#0B5FB0" }}>
+              Current Location
+            </Text>
+          </View>
+
+          <View className="flex-row items-center justify-between py-2">
+            <View className="flex-row items-center">
+              <View
+                className="w-3 h-3 rounded-full mr-3"
+                style={{ backgroundColor: "#AAFIFF" }}
+              />
+              <Text style={{ color: "#0F214D" }}>Estimated Arrival</Text>
+            </View>
+            <Text className="font-semibold" style={{ color: "#2BA3EC" }}>
+              3-5 minutes
+            </Text>
+          </View>
+
+          <View className="flex-row items-center justify-between py-2">
+            <View className="flex-row items-center">
+              <View
+                className="w-3 h-3 rounded-full mr-3"
+                style={{ backgroundColor: "#EFEDCE" }}
+              />
+              <Text style={{ color: "#0F214D" }}>Estimated Cost</Text>
+            </View>
+            <Text className="font-semibold" style={{ color: "#0B5FB0" }}>
+              $8.50 - $12.00
+            </Text>
+          </View>
+        </View>
+
+        {/* Order Button */}
         <TouchableOpacity
           onPress={handleOrderUmbrella}
-          className="bg-persianBlue dark:bg-pictonBlue py-4 rounded-xl"
+          className="py-4 rounded-xl shadow-lg"
+          style={{ backgroundColor: "#0B5FB0" }}
         >
-          <Text className="text-white text-center font-semibold text-lg">
-            Order Umbrella
+          <View className="flex-row items-center justify-center">
+            <Text className="text-white text-center font-bold text-lg mr-2">
+              Order Umbrella Now
+            </Text>
+            <Text className="text-white text-xl">☂️</Text>
+          </View>
+        </TouchableOpacity>
+
+        {/* Emergency Button */}
+        <TouchableOpacity
+          className="mt-3 py-3 rounded-lg border-2"
+          style={{ borderColor: "#2BA3EC" }}
+        >
+          <Text
+            className="text-center font-semibold"
+            style={{ color: "#2BA3EC" }}
+          >
+            🚨 Emergency Rain Protection
           </Text>
         </TouchableOpacity>
       </View>
